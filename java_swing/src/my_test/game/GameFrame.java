@@ -1,4 +1,4 @@
-package game;
+package my_test.game;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -58,9 +58,9 @@ public class GameFrame extends JFrame implements KeyListener {
     }
 
     private void addEventListener() {
-        // KeyListener <- 인터페이스야
-        // 자바 문법 인터페이스,추상클래스를 구현 클래스(즉 객체로 사용하는 문법을 제공한다.)
-        // new KeyListener(){.. 추상 메서드를 구현 메서드를 오버라이드 } (클래스로 바라본다.)
+        // KeyListener < - 인터페이스야
+        // 자바 문법 인터페이스 추상,클래스를 구현 클래스 (즉 객체로 사용하는 문법을 제공한다.)
+        // new KeyListener(){.. 추상 메서드를 구현 메서드르 오버라이드 } (클래스로 바라본다.)
 
         addKeyListener(this);
 
@@ -134,16 +134,14 @@ public class GameFrame extends JFrame implements KeyListener {
                 System.out.println("playerY : " + playerY);
                 System.out.println("----------------------");
                 System.out.println("player2X : " + player2X);
-                System.out.println("player2y : " + player2Y);
+                System.out.println("player2Y : " + player2Y);
                 // 1. 단계 playerX == player2X 같다면 같은 좌표에 있음
-                if(playerX == player2X && playerY == player2Y) {
+                // 2. 단계 playerY == Player2Y 같다면 완전 동일 좌표
+                if (playerX == player2X && playerY == player2Y) {
                     System.out.println("XY 좌표선상에서 같은 위치를 가르킨다.");
                     player1 = null;
                 }
-
-                // 2. 단계 playerY == Player2Y 같다면 완전 동일 좌표
             }
-
         }
     } // end of inner class
-}
+} // end of class
