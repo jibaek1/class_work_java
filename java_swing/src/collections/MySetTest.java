@@ -39,6 +39,7 @@ public class MySetTest {
         System.out.println("------------------------------------");
         Iterator<Integer> iter = numberSet.iterator(); // 형 변환 처리 Set --> Iterator 형 변환
         // hasNext 가지고 있는 요소가 없으면 false를 반환한다.
+
         while(iter.hasNext()) {
             System.out.println("값 : " + iter.next()); // next() 요소를 반환 처리 한다.
         }

@@ -1,8 +1,6 @@
 package my_test.collections;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class MySetTest {
 
@@ -39,6 +37,31 @@ public class MySetTest {
         // Set 계열을 Iterator(요소 반복자) 타입으로 변환해서 순회 시킬 수 있었다. 지금도 가능
         System.out.println("----------------------------------");
         Iterator<Integer> iter = numberSet.iterator(); // 형 변환 처리 Set --> Iterator 형 변환
+        // hasNext 가지고 있는 요소가 없으면 false를 반환한다.
 
+        while(iter.hasNext()){
+            System.out.println("값 : " + iter.next()); // next() 요소를 반환 처리 한다.
+        }
+
+        System.out.println("----------------------------------");
+        // Set계열 자료 구조 선언(정수값만 담을 수 있고 중복 허용 불가)
+        HashSet<Integer> lottoNumbers = new HashSet<>();
+        while(lottoNumbers.size() < 6){
+            lottoNumbers.add(getRandomNumber());
+        }
+        System.out.println("무작위로 선택된 로또 번호 6개 : " + lottoNumbers.toString());
+
+        // HastSet 데이터 타입을 ArrayList 객체 생성시에 즉, 생성자에 인자값을 넣을 수 있도록 설계 됨
+        ArrayList<Integer> sortedList = new ArrayList<>(lottoNumbers);
+        // 정령하기 기능 사용해보기
+        Collections.sort(sortedList);
+        System.out.println("정렬된 로또 번호 확인 : " + sortedList);
+
+    } // end of main
+
+    // 무작위 1부터 45까지 랜덤 번호 생성 함수
+    public static int getRandomNumber(){
+        Random random = new Random();
+        return random.nextInt(45) + 1 ;
     }
 }

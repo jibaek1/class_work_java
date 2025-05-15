@@ -1,4 +1,4 @@
-package bubble.test07;
+package my_test.bubble;
 
 import javax.swing.*;
 
@@ -14,7 +14,7 @@ public class Player extends JLabel implements Moveable {
     private final int SPEED = 4;
     private final int JUMP_SPEED = 2;
 
-    // 플레이어 움직인 상태
+    // 플레이어 움직임 상태
     private boolean left;
     private boolean right;
     private boolean up;
@@ -24,14 +24,13 @@ public class Player extends JLabel implements Moveable {
     private boolean leftWallCrash;
     private boolean rightWallCrash;
 
-    // 플레이어 방향 상태 (enum 타입 사용 법 1 - 선언 )
+    // 플레이어 방향 상태 (enum 타입 사용 법 1 - 선언)
     private PlayerWay playerWay;
 
     // PlayerWay - getter 만 생성
     public PlayerWay getPlayerWay() {
         return playerWay;
     }
-
 
     @Override
     public int getX() {
@@ -148,7 +147,6 @@ public class Player extends JLabel implements Moveable {
         setLocation(x, y);
     }
 
-
     @Override
     public void left() {
         // 클래스 이름으로 접근한다.
@@ -161,24 +159,22 @@ public class Player extends JLabel implements Moveable {
                 while (left) {
                     x = x - SPEED;
                     setLocation(x, y);
-
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
-
             }
         }).start();
     }
 
     @Override
     public void right() {
+        // 클래스 이름으로 접근한다.
         playerWay = PlayerWay.RIGHT;
-        right = true; // 움직임 상태값 변경
+        right = true;
         setIcon(playerR);
-        // 익명 클래스 - thread.start() ---> run() 메서드안에 구문 동작된다.
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -211,7 +207,7 @@ public class Player extends JLabel implements Moveable {
                         throw new RuntimeException(e);
                     }
                 } // end of for
-                up = false; // 상태값을 잘 다루어야 버그가 없다.
+                up = false;
                 down();
             }
         }).start();
@@ -238,4 +234,4 @@ public class Player extends JLabel implements Moveable {
             }
         }).start();
     }
-}
+} // end of class
