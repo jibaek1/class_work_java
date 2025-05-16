@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class Student {
     private int id;
     private String name;
-    private String
+    private String Student_id;
 }
